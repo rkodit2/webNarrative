@@ -135,18 +135,27 @@ function draw() {
 
   }else if (gameState === 6){
     background(0);
-    text(myString + ', did you have fun?', width/2, height/2);
+
     sel = createSelect();
     sel.position(width/2, height/2+20);
     sel.option('Yes');
     sel.option('No');
-    sel.changed(mySelectEvent);
-    let item = sel.value();
-    text(myString + ' selected ' + item + '!',width/2,height/2 +70);
+
+    gameState = 7;
+  // }else if(gameState === 7){
+
+  // }
 
 
 
-  }
+} else if (gameState === 7){
+  // sel.changed(mySelectEvent);
+  let item = sel.value();
+  background(0);
+  text(myString + ', did you have fun?', width/2, height/2);
+  text(myString + ' selected ' + item + '!',width/2,height/2 +70);
+
+}
   console.log(grayscaleValue);
 }
 
@@ -169,9 +178,11 @@ function mousePressed() {
 }
 
 function mySelectEvent(){
-  if(gameState == 6){
-    let item = sel.value();
-    text(myString + 'selected' + item + '!',150,150);
-  }
+ if(gameState === 6){
+   let item = sel.value();
+   text(myString + 'selected' + item + '!',150,150);
+ }
 
 }
+
+// }
